@@ -1,0 +1,23 @@
+<div class="row" id="ref_saleallow"> 
+    <div class="clearfix m-b-sm">
+        <form class="form-search input-group pull-right" data-bind="submit:queryByname">
+                <input type="text" data-bind="value:goodsName" class="form-control input_search " placeholder="请输入供应商名称">
+            <span class="input-group-btn"> 
+                <button class="btn btn-white no-btn-outline">
+                        <i class="fa fa-search "></i>
+                </button>
+            </span>
+        </form>
+    </div> 
+    <div class="grid-body no-border">
+    	<div type="text" class="i-option-grid fix-ugrid-ctn" u-meta='{"id":"grid1","data":"deliveryOrderDetailDataTable","type":"grid","editable":false}'>
+            <div options='{"field":"productName","dataType":"String","title":"商品名称","width":"35%"}'></div>
+            <div options='{"field":"price","dataType":"String","title":"价格","width":"15%"}'></div>
+            <div options='{"field":"taxprice","dataType":"String","title":"含税价格","width":"15%"}'></div>
+            <div options='{"field":"materialName","dataType":"String","title":"对应物料","width":"35%"}'></div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <ul u-meta='{"type":"pagination","data":"deliveryOrderDetailDataTable","pageChange":"pageChange","sizeChange":"sizeChange"}' class="pagination"></ul>
+        </div>
+    </div>
+</div>

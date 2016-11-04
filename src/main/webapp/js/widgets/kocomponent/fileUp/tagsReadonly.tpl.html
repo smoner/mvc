@@ -1,0 +1,89 @@
+
+<style type="text/css">
+	.tag{
+			position: relative;
+		    background: #f5f5f5;
+		    float: left;
+		    width: 84px;
+		    height: 40px;
+		    line-height: 40px;
+		    border: 1px solid #02c4b9;
+		    -webkit-border-radius: 10px;
+		    border-radius: 10px;
+		    margin-right: 20px;
+		    margin-bottom: 10px;
+		    font-size: 10px;
+		    color: #333;
+		    text-align: center;
+		    -webkit-transition: all 0.6s ease-out;
+		    -moz-transition: all 0.6s ease-out;
+		    -o-transition: all 0.6s ease-out;
+		    -ms-transition: all 0.6s ease-out;
+		    transition: all 0.6s ease-out;
+		}
+	.addTag {
+			position: relative;
+			border: 1px dashed #dcdcdc;
+			background: #fff;
+		    font-size: 25px;
+		    font-weight: 700;
+		    color: #a6a9ac;
+		    border-radius: 10px;
+		    margin-right: 17px;
+		    margin-bottom: 10px;
+		    text-align: center;
+		    width: 84px;
+		    height: 40px;
+		    cursor: pointer;		    
+	}
+	.tags .tag .del{
+		background: url("img/del.png") no-repeat;
+	    right: 8px;
+	    position: absolute;
+	    width: 20px;
+	    height: 20px;
+	     top: 30px;
+	    display: block;
+		}
+	.tags .tag .download{
+		background: url("img/download.png") no-repeat;
+	    right:52px;
+	    position: absolute;
+	    width: 20px;
+	    height: 20px;
+	    top: 32px;
+	    display: block;
+	}
+	.tag:hover{
+		cursor: pointer;
+	}
+	.tag .infon-box{
+	   display: inline-block;
+	   width: 82px;
+	   overflow: hidden;
+	   white-space: nowrap;
+   	   text-overflow: ellipsis;
+	}
+	#tagsfile{
+		position: absolute;
+		width: 80px;
+		height: 40px;
+		top: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+</style>
+	<div class="tagsfile-box">
+		<div class="tags clearfix">
+			<div class="oldtags" data-bind="foreach:initDatas">
+				<div class="tag ">
+					<span class="infon-box" data-bind="text:filename,attr:{'title':filename}"></span>
+					<a href="#" class="download" title="下载" data-bind="click:function(data, event){return $parent.downtags(data,event)} "></a>
+				</div>
+			</div>			
+		</div>
+	</div>

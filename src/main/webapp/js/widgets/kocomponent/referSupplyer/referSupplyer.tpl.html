@@ -1,0 +1,160 @@
+ <style type="text/css">
+     #refsupplyer_model{
+     	position: absolute;
+     	background: #FFFFFF;
+     }
+	 .input-group-singlebox{
+	 	width: 240px;
+	 	position: relative;
+	 	display:inline-block;
+	 	border: 1px solid rgb(224,224,224);
+	 	border-bottom: none;
+	 	background: #FFFFFF;
+	 	z-index: 999;
+	 	min-height: 34px;
+	 }
+	.input-group-singlebox .input-group{
+	 	width: 100%;
+	 }
+	 .i-refer-btn{
+ 	    position: absolute;
+	    top: 11px;
+	    right:8px;
+	    color: #333;
+	    transition: all .5s;
+	    z-index: 999;
+	    cursor: pointer;
+	 }
+	 .refer-singlebox{
+	 	position: relative;
+	 	width: 240px;
+	 	max-height: 320px;
+	 	_height:320px;
+	 	border: 1px solid rgb(224,224,224);
+	 	background: #FFFFFF;
+	 	border-top: none;
+	 	overflow-y: scroll;
+	 	overflow-x: hidden;
+	 }
+	 .refer-singlebox .refer-list{
+	 	margin-bottom: 0;
+	 }
+	 .refer-singlebox .refer-list li{
+	 	line-height: 24px;
+	 	padding: 0 10px 0;
+	 	color: #999;
+	 }
+	 .refer-singlebox .refer-list li.active{
+	 	background: rgb(232,247,251);
+	 }
+	  .refer-singlebox .refer-list li:hover{
+	 	background: rgb(232,247,251);
+	 }
+	 .refer-singlebox .refer-list li .refer-cont{
+	 	width: 220px;
+	 	padding-left: 20px;
+	 	overflow: hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		-o-text-overflow:ellipsis;
+	    color:#999999 !important;
+	    line-height: 24px;           	 	
+	 }
+	.refer-singlebox .refer-list li .checkbox label:before{
+		top: 5px;
+	}
+	.refer-singlebox .refer-list li .checkbox.check-success input[type=checkbox]:checked+label::after{
+		top: 5px;
+	}
+	.controlbtn{
+		line-height: 24px;
+		padding: 0 10px 0;
+	}
+	.referSupply_list{
+		width: 200px;
+		position: relative;				
+	}
+	.referSupply_list.hideStatus{
+		height: 34px;
+		overflow: hidden;
+		border-bottom: 1px solid rgb(224,224,224);
+		width: 240px;
+	}
+	.referSupply_list .i-refer-btn{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.referSupply_list_item{
+		width:80px;
+		line-height: 24px;
+		background: rgb(242,242,242);	
+		margin: 4px;					
+	}
+	.referSupply_list_item span{
+		float: left;
+		line-height: 24px;
+	}
+	.referSupply_list_item .referSupply_list_item_name{
+		width: 66px;
+		overflow: hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		-o-text-overflow:ellipsis;
+	    color:#999999 !important;				    
+	}
+	.referSupply_list_item .fa{
+		color: #999999;
+		cursor: pointer;
+	}
+	.input-group-singlebox .badge{
+		position: absolute;
+	    right: 30px;
+	    top: 5px;
+	    width:28px;
+	    height: 20px;
+	    z-index: 99999;
+	}
+	.refsupplyer_modelwarp{
+		width: 240px;
+		height: 34px;
+	}
+	.prompt{
+		line-height: 34px;
+		padding-left: 10px;
+		color: #999999;
+		display: none;
+	}
+	.referSupply_list:empty+.prompt{
+		display: block;
+	}
+   </style>
+
+  <div class="input-group refsupplyer_modelwarp" style="z-index: 99999999;">
+    <div id="refsupplyer_model" data-bind="click: parentFocus">
+    	<div class="input-group-singlebox">	                		
+    	  <i class="fa fa-list-ul i-refer-btn"  data-bind = "click:showSupAction"></i> 	                	  
+    	  <label  class="badge badge-primary" data-bind="visible:selectedTotal() >= 1,text:selectedTotal, click:controlCss">12</label>
+    	  <div class="referSupply_list clearfix" data-bind="foreach:supplierrefers">                	  	
+    	  	<div class="referSupply_list_item pull-left"> <span class="referSupply_list_item_name" data-bind="text:name, attr:{'title':name}">sdfasdfsad</span> <span class="fa fa-times" data-bind="click:function(data,event){$parent.delRefsupplyList(data,event); return true}"></span></div>    	  	
+    	  </div>
+ 
+          <div class="input-group " data-bind="visible:showRefInput">
+            <input class="form-control" type="text" required="" placeholder="对账供应商" autocomplete="off" id="referSupplyer_serch" data-bind="value:refsupplyVal, valueUpdate: 'afterkeyup',event:{focus:refsupplyfocus,keyup:refsupplykeyup}"  >                             
+          </div>
+        </div>  
+        <div class="refer-singlebox"  data-bind="visible:showRefList">
+          		<ul class="refer-list" data-bind="foreach:checkSuppyData" >		              			
+          			<li class="clearfix ">
+          				<div class="checkbox check-success referSupply_box" data-bind="">
+							<input type="checkbox" class="referSupply_checkbox" value="" data-bind="attr:{'id':id,'name':name,'supplyId':supplyId?supplyId:''}">
+							<label class="refer-cont"  data-bind="text:name,attr:{'for':id},click:function(data,ev){$parent.checkedRefn($index(),data,ev); return true}"></label>
+						</div>						
+          			</li>				              			
+          		</ul>
+          		<div class="clearfix controlbtn">
+          			<a class="pull-right"  data-bind="visible:showRefsupplymore,click:loadRefsupplymore">查看更多</a>			              			
+          		</div>
+          </div>
+    </div>   
+ </div>

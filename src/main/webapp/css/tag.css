@@ -1,0 +1,222 @@
+.main .marker {
+  position: absolute;
+  background: #000;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+.tag{
+	position: relative;
+    background: #f5f5f5;
+    float: left;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #02c4b9;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-right: 17px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    color: #333;
+    text-align: center;
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+}
+
+.addTag {
+	position: relative;
+	border: 1px dashed #dcdcdc;
+	background: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    color: #a6a9ac;
+    border-radius: 10px;
+      margin-right: 17px;
+    margin-bottom: 10px;
+    text-align: center;
+     width: 80px;
+    height: 40px;
+    cursor: pointer;
+    
+}
+
+.main .pop_edit {
+  clear: both;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  top: -300px;
+  left: 50%;
+  margin-left: -333px;
+  margin-top: -205px;
+  z-index: 1000;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.main .pop_edit h3 {
+  position: relative;
+  font-weight: normal;
+  font-size: 18px;
+  color: #666;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 19px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+}
+.main .edit_header .operate .cancel {
+  background: #999;
+}
+.main .success .cancel {
+  background: #999;
+}
+
+.main .success a {
+    display: inline-block;
+    zoom: 1;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 14px;
+   }
+   
+.main .success .ok {
+    background: #be0000;
+}
+
+.main .pop_edit .context {
+    padding: 0 20px 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.main .pop_edit .close {
+    position: absolute;
+    text-decoration: none;
+    right: 30px;
+    top: 5px;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.main .success {
+    border-top: 1px solid #f0f0f0;
+    text-align: right;
+    padding: 10px 0;
+    padding-right: 20px;
+}
+
+.tags .tag .del{
+	background: url("../img/del.png") no-repeat;
+    right: 4px;
+        position: absolute;
+    width: 20px;
+    height: 20px;
+     top: 30px;
+    display: block;
+}
+.tags .tag .download{
+	background: url("../img/download.png") no-repeat;
+    right:50px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 30px;
+    display: block;
+}
+.tag:hover{
+	cursor: pointer;
+}
+
+
+.buyofferattach1{
+	display: none;
+}
+
+.buyofferattach1 label{
+	line-height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buyofferattach1 .field{
+	display: inline-block;
+}
+.buyofferattach2{
+	display: none;
+}
+.buyofferattach2 label{
+	line-height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.buyofferattach2 .field{
+	display: inline-block;
+}
+.buyofferattach3{
+	display: none;
+}
+
+.buyofferattach3 label{
+	line-height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.buyofferattach3 .field{
+	display: inline-block;
+}
+.buyofferattach4{
+	display: none;
+}
+
+.buyofferattach4 label{
+	line-height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.buyofferattach4 .field{
+	display: inline-block;
+}
+
+.buyofferattach5{
+	display: none;
+}
+
+.buyofferattach5 label{
+	line-height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.buyofferattach5 .field{
+	display: inline-block;
+}
+
+
+

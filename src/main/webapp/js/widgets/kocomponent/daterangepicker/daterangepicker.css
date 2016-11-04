@@ -1,0 +1,48 @@
+/*songhlc ie9中 通过css插件加载此文件会超时，所以统一合并到protal.css之中，不再引用*/
+.dr-picker{
+    position: relative;
+    font-size: 12px;
+    min-width: 200px;
+}
+.dr-picker-ctn{
+    display: none;
+    position: absolute;
+    border: solid 1px #ececec;
+    padding: 5px 10px;
+    background-color: #FFF;
+    margin-top: -1px;
+    z-index: 100;
+}
+.dr-picker .fa{
+    position: absolute;
+    right:6px;
+    top:12px;
+}
+.dr-picker input{
+    cursor:pointer;
+    width: 100% !important;
+    color: #999;
+}
+.dr-active .dr-picker-ctn,.dr-picker:hover .dr-picker-ctn{
+    display: block;
+}
+.dr-picker ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px 0;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+}
+.dr-picker-ctn ul li {
+    padding: 8px 4px;
+}
+.dr-picker-ctn ul li:hover{
+    background-color: #1baede;
+    color:#FFF;
+}
+.dr-picker-ctn input {
+    display: block;
+}
+.dr-picker .text-error{
+    color:red;
+}

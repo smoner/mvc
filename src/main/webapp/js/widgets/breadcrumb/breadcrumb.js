@@ -1,0 +1,426 @@
+define(['jquery'],function($){
+		var purchaseindex="#/pages/home/home";
+		var supplyindex = "#pages/home/supplyhome";
+		var pathMaps = {
+	//	***********purchase**************
+	//采购需求		
+			"requirement/requirelist/0":[
+				{name:"首页",link:purchaseindex},
+				{name:"需求管理"}
+			],
+			"requirement/requirelist/1":[
+				{name:"首页",link:purchaseindex},
+				{name:"需求管理"}
+			],
+			"pages/requirement/requirelist":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理",link:"#/pages/buyoffer/buyofferlist"},
+				{name:"询价单发布"}
+			],
+	//询价单管理：
+			"pages/buyoffer/buyofferlist":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理"}
+			],
+			"pages/buyoffer/buyofferedit":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理",link:"#/pages/buyoffer/buyofferlist"},
+				{name:"询价单编辑"}
+			],
+			"pages/pricedecision/addcompare":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理",link:"#/pages/buyoffer/buyofferlist"},
+				{name:"询价单详情"}
+			],
+			"pages/pricedecision/pricedecision":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理",link:"#/pages/buyoffer/buyofferlist"},
+				{name:"定标详情"}
+			],
+			"pages/pricedecision/pdresultlist":[
+				{name:"首页",link:purchaseindex},
+				{name:"定标"}
+			],
+			"pages/pricedecision/pdresultlist&id":[
+				{name:"首页",link:purchaseindex},
+				{name:"定标",link:"#/pages/pricedecision/pdresultlist"},
+				{name:"定标详情"}
+			],
+			"pages/pricedecision/pricecompare":[
+				{name:"首页",link:purchaseindex},
+				{name:"询价管理",link:"#/pages/buyoffer/buyofferlist"},
+				{name:"询价单详情",link:"#/pages/pricedecision/addcompare"},
+				{name:"比价"}
+			],
+	//采购订单：	
+			"pages/order/purorder":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购订单"}
+			],
+			"pages/order/puorderexec":[
+				{name:"首页",link:purchaseindex},
+				{name:"订单执行查询"}
+			],
+			"pages/order/puorderexecdetail":[
+				{name:"首页",link:purchaseindex},
+				{name:"订单执行查询",link:"#/pages/order/puorderexec"},
+				{name:"订单执行详细"}
+			],
+			"pages/order/purOrderDetail":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购订单",link:"#/pages/order/purorder"},
+				{name:"订单详情"}
+			],
+	//到货订单：
+			"pages/arriveorder/arriveorderlist":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购订单"}
+			],
+	//1688消息处理：
+				"pages/requirement/msgpush":[
+				{name:"首页",link:purchaseindex},
+				{name:"1688消息处理"}
+			],
+	//采购协同：
+			"pages/checkbiz/pu_checkbill_list":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购对账"}
+			],
+			"pages/checkbiz/pu_checkbill_card":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购对账",link:"#/pages/checkbiz/pu_checkbill_list"},
+				{name:"对账信息"}
+			],
+			"pages/checkbiz/pu_invoice_list":[
+				{name:"首页",link:purchaseindex},
+				{name:"采购发票"},
+			],
+	
+	//********************(supply)**********************************
+	//报价单：
+			"pages/price/quotation":[
+			{name:"首页",link:supplyindex},
+			{name:"报价单"}
+			],
+			"pages/price/buyOfferDetail":[
+			{name:"首页",link:supplyindex},
+			{name:"报价单",link:"#/pages/price/quotation"},
+			{name:"询价单详情"}
+			],
+			
+			"pages/price/quotationOfferDetail":[
+			{name:"首页",link:supplyindex},
+			{name:"报价单",link:"#/pages/price/quotation"},
+			{name:"报价单详细"}
+			],
+			
+			"pages/price/priceDetail":[
+			{name:"首页",link:supplyindex},
+			{name:"报价单",link:"#/pages/price/quotation"},
+			{name:"报价单详细"}
+			],
+	//允销管理:
+			"pages/allowsale/applylist":[
+			{name:"首页",link:supplyindex},
+			{name:"允销申请"}
+			],
+			"pages/allowsale/applyedit":[
+			{name:"首页",link:supplyindex},
+			{name:"允销申请",link:"#/pages/allowsale/applylist"},
+			{name:"允销申请单"}
+			],
+			"pages/allowsale/applycategory":[
+			{name:"首页",link:supplyindex},
+			{name:"允销目录"}
+			],
+	//销售订单管理：
+			"pages/saleorder/saleorderlist":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单"}
+			],
+			"pages/saleorder/erpsaledetail":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单",link:"#/pages/saleorder/saleorderlist"},
+			{name:"销售订单详情"}
+			],
+			
+			"pages/saleorder/saledetail":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单",link:"#/pages/saleorder/saleorderlist"},
+			{name:"销售订单详情"}
+			],
+			"pages/deliveryorder/new_deliveryorder":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单",link:"#/pages/saleorder/saleorderlist"},
+			{name:"新增发货单"}
+			],
+			"pages/saleorder/saledetailconfirm":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单",link:"#/pages/saleorder/saleorderlist"},
+			{name:"销售订单维护"}
+			],
+			"pages/saleorder/sale_order_detail":[
+			{name:"首页",link:supplyindex},
+			{name:"销售订单",link:"#/pages/saleorder/saleorderlist"},
+			{name:"销售订单编辑"}
+			],
+			
+	//发货管理：
+			"pages/deliveryorder/deliveryorderlist":[
+			{name:"首页",link:supplyindex},
+			{name:"发货管理"}
+			],
+			"pages/deliveryorder/new_deliveryorder_so":[
+			{name:"首页",link:supplyindex},
+			{name:"发货管理",link:"#/pages/deliveryorder/deliveryorderlist"},
+			{name:"新建发货单列表"}
+			],
+			"pages/deliveryorder/new_deliveryorder_so/toDeliveryOrder":[
+			{name:"首页",link:supplyindex},
+			{name:"发货管理",link:"#/pages/deliveryorder/deliveryorderlist"},
+			{name:"新建发货单列表",link:"#/pages/deliveryorder/new_deliveryorder_so"},
+			{name:"新增发货单"}
+			],
+			
+	//入库单列表：
+			"pages/coopbiz_billquery/purchaseinlist":[
+			{name:"首页",link:supplyindex},
+			{name:"销售入库"}
+			],
+	//采购发票查询：
+			"pages/coopbiz_billquery/invoicelist":[
+			{name:"首页",link:supplyindex},
+			{name:"发票列表"}
+			],
+			"pages/coopbiz_billquery/invoicelist&invoicebilldetail":[
+			{name:"首页",link:supplyindex},
+			{name:"发票列表",link:"#/pages/coopbiz_billquery/invoicelist"},
+			{name:"发票详情"}
+			],
+	
+	
+			
+	//商品管理
+			"pages/product_manager/productlist":[
+			{name:"首页",link:supplyindex},
+			{name:"商品管理"}
+			],
+			"pages/product_manager/productpublish":[
+			{name:"首页",link:supplyindex},
+			{name:"商品管理",link:"#/pages/product_manager/productlist"},
+			{name:"选择商品类目"}
+			],
+			"pages/product_manager/publishdetail":[
+			{name:"首页",link:supplyindex},
+			{name:"商品管理",link:"#/pages/product_manager/productlist"},
+			{name:"选择商品类目",link:"#/pages/product_manager/productpublish"},
+			{name:"编辑商品信息"}
+			],
+			"pages/product_manager/productviewinfo":[
+			{name:"首页",link:supplyindex},
+			{name:"商品管理",link:"#/pages/product_manager/productlist"},
+			{name:"商品详情"}
+			],
+			"pages/product_manager/productedit":[
+			{name:"首页",link:supplyindex},
+			{name:"商品管理",link:"#/pages/product_manager/productlist"},
+			{name:"商品内容修改"}
+			],
+	
+	//销售协同：
+			"pages/checkbiz/sale_checkbill_list":[
+				{name:"首页",link:supplyindex},
+				{name:"销售对账"}
+			],
+			"pages/checkbiz/sale_checkbill_card":[
+				{name:"首页",link:supplyindex},
+				{name:"销售对账",link:"#/pages/checkbiz/sale_checkbill_list"},
+				{name:"申请对账"}
+			],
+			"pages/checkbiz/sale_invoice_list":[
+				{name:"首页",link:supplyindex},
+				{name:"销售发票管理"},
+			],
+			"pages/checkbiz/sale_invoice_card":[
+				{name:"首页",link:supplyindex},
+				{name:"销售发票管理",link:"#/pages/checkbiz/sale_invoice_list"},
+				{name:"开发票"}
+			],
+			"pages/checkbiz/sale_invoice_card_detail1":[
+				{name:"首页",link:supplyindex},
+				{name:"销售发票管理",link:"#/pages/checkbiz/sale_invoice_list"},
+				{name:"开发票",link:"#/pages/checkbiz/sale_invoice_card"},
+				{name:"销售发票详情"}
+			],
+			"pages/checkbiz/sale_invoice_card_detail2":[
+				{name:"首页",link:supplyindex},
+				{name:"销售发票管理",link:"#/pages/checkbiz/sale_invoice_list"},
+				{name:"销售发票详情"}
+			],
+	
+	
+	//********************(admin)**********************************	
+	//供应商管理
+			"pages/pu_supplymgr/supplymgr":[
+			{name:"首页",link:purchaseindex},
+			{name:"供应商档案"},
+			],
+			"pages/pu_supplymgr/addsupply":[
+			{name:"首页",link:purchaseindex},
+			{name:"供应商档案",link:"#/pages/pu_supplymgr/supplymgr"},
+			{name:"新增供应商档案"},
+			],
+			"pages/pu_supplymgr/supplydocdetail":[
+			{name:"首页",link:purchaseindex},
+			{name:"供应商档案",link:"#/pages/pu_supplymgr/supplymgr"},
+			{name:"供应商档案详情"},
+			],
+			"pages/pu_supplymgr/supplydocedit":[
+			{name:"首页",link:purchaseindex},
+			{name:"供应商管理",link:"#/pages/pu_supplymgr/supplymgr"},
+			{name:"供应商档案编辑"},
+			],
+	//供货目录管理
+			"pages/allowsale/puallowlist":[
+			{name:"首页",link:purchaseindex},
+			{name:"供货目录管理"},
+			],
+			"pages/allowsale/puallowdetail":[
+			{name:"首页",link:purchaseindex},
+			{name:"供货目录管理" ,link:"#/pages/allowsale/puallowlist"},
+			{name:"供货申请详情"},
+			],
+			
+			
+			"pages/allowsale/puapplycategory":[
+			{name:"首页",link:purchaseindex},
+	//		{name:"供货目录管理",link:"#/pages/allowsale/puallowlist"},
+			{name:"供货目录"},
+			],
+			"pages/allowsale/goodspublish":[
+			{name:"首页",link:purchaseindex},
+			{name:"商品上下架"},
+			],
+	//y用户管理
+			"pages/admin_user/user":[
+			{name:"首页",link:purchaseindex},
+			{name:"用户管理"},
+			],
+			"pages/admin_user/useredit":[
+			{name:"首页",link:purchaseindex},
+			{name:"用户管理",link:"#/pages/admin_user/user"},
+			{name:"用户编辑"},
+			],
+			
+			
+	//组织管理：pages/organization_manager/organization
+			"pages/organization_manager/organization":[
+			{name:"首页",link:purchaseindex},
+			{name:"部门管理"},
+			],
+	//新增部门管理 pages/organization_manager/addorganization
+			"pages/organization_manager/addorganization":[
+			{name:"首页",link:purchaseindex},
+			{name:"组织机构管理",link:"#/pages/organization_manager/organization"},
+			{name:"新增部门管理"},
+			],
+	//基本档案 
+			"pages/material_manager/materialclass":[
+			{name:"首页",link:purchaseindex},
+			{name:"物料分类"},
+			],
+			"pages/material_manager/material":[
+			{name:"首页",link:purchaseindex},
+			{name:"物料管理"},
+			],
+			"pages/product_manager/productclslist":[
+			{name:"首页",link:purchaseindex},
+			{name:"商品分类"},
+			],
+			"pages/pu_supplymgr/supplyclass":[
+			{name:"首页",link:purchaseindex},
+			{name:"供应商分类管理"},
+			],
+			"pages/product_manager/marketproductclslist":[
+			{name:"首页",link:purchaseindex},
+			{name:"超市商品分类管理"},
+			],
+			"pages/admin_enterprise/enterprisemanage":[
+			{name:"首页",link:purchaseindex},
+			{name:"企业信息管理"},
+			],
+			"pages/admin_enterprise/enterprisemanageedit":[
+			{name:"首页",link:purchaseindex},
+			{name:"企业信息管理",link:"#/pages/admin_enterprise/enterprisemanage"},
+			{name:"企业信息编辑"},
+			],
+			"pages/admin/erpconfig":[
+			{name:"首页",link:purchaseindex},
+			{name:"ERP数据维护"},
+			],
+			"pages/admin/erpMaterialAys":[
+			{name:"首页",link:purchaseindex},
+			{name:"ERP数据维护",link:"#/pages/admin/erpconfig"},
+			{name:"同步物料数据"},
+			],
+			"pages/admin/erpSuppAys":[
+			{name:"首页",link:purchaseindex},
+			{name:"ERP数据维护",link:"#/pages/admin/erpconfig"},
+			{name:"同步供应商数据"},
+			],
+			"pages/admin/erpconfigedit":[
+			{name:"首页",link:purchaseindex},
+			{name:"ERP数据维护",link:"#/pages/admin/erpconfig"},
+			{name:"ERP数据修改"},
+			],
+	//云审用户同步
+			"pages/uapprove/synchronize":[
+			{name:"首页",link:purchaseindex},
+			{name:"云审用户同步"},
+			],
+	//审批流设计	
+			"pages/uapprove/processlist":[
+			{name:"首页",link:purchaseindex},
+			{name:"审批流设计"},
+			],
+			"pages/uapprove/processdesign":[
+			{name:"首页",link:purchaseindex},
+			{name:"审批流设计",link:"#/pages/uapprove/processlist"},
+			{name:"审批流编辑"},
+			],
+			
+		}
+	   
+		var Breadcrumb = {
+		  BreadcrumbNavigator : function(path,selector){
+			selector=selector?selector:".ibox-m-title";
+			var reg = new RegExp("Blank=true", "g");
+			var pathBlank;
+			if(!path){
+				path=window.location.hash.split('#/')[1].split('?')[0];
+			    pathBlank = window.location.hash.split('#/')[1].split('?')[1];
+			}
+			if(pathBlank && reg.test(pathBlank)){
+				$(selector).html('');
+			}else{
+				var pathlist = pathMaps[path];
+				var template = $("<div class='breadcrumb-nav'></div>");
+				for(var i=0;i<pathlist.length;i++){
+				var item = pathlist[i];
+				if(item.link){
+					template.append("<a href='"+item.link+"'>"+item.name+"</a>")
+				}
+				else{
+					template.append("<span>"+item.name+"</span>");	
+				}
+				if(i<pathlist.length-1){
+					template.append("&nbsp;<i class='fa fa-angle-right'></i>&nbsp;");
+				}
+			}
+			$(selector).html(template);
+			}
+		},
+	}
+	return Breadcrumb
+
+})

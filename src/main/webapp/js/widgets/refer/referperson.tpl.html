@@ -1,0 +1,19 @@
+ <div class="row" id="ref_person" style="height:502px;overflow:auto;">
+    <div class="col-md-4">
+        <div class="ztree" style="height: 502px;overflow: auto;" u-meta='{"id":"ztree_organization_refer","data":"organizationDataTableForTree","type":"tree","idField":"id","nameField":"orgName","setting":{"view":{"selectedMulti":false}},"pidField":"parentId","events":{"onClick":"treeOnClick"}}'>
+        </div>
+    </div>
+	<div class="col-md-8">                
+        <div id="personedit" class="tab-pane m-t-sm">           
+            <div type="text" class="i-option-grid m-t-sm fix-ugrid-ctn autoheight-grid no-scroll" u-meta='{"id":"persongrid","data":"personDataTable","type":"grid","editable":false}'>
+                <div options='{"field":"personcode","dataType":"String","title":"人员编码","width":"30%"}'></div>
+                <div options='{"field":"personname","dataType":"String","title":"人员名称","width":"30%"}'></div>
+                <div options='{"field":"persondesc","dataType":"String","title":"人员描述","width":"40%"}'></div>                        
+            </div>
+            <div class="row" style="text-align:center;">
+                <ul u-meta='{"type":"pagination","data":"personDataTable","pageChange":"pageChange","sizeChange":"sizeChange"}' class="pagination"></ul>
+            </div>
+        </div>  
+   </div>
+</div>
+

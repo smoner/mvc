@@ -1,0 +1,25 @@
+<div class="row" id="ref_enterprise">   
+    <div class="row m-t-n-sm">
+        <div class="col-sm-12">
+            <form class="form-search input-group pull-right" data-bind="submit:queryPage">
+                    <input type="text" data-bind="value:name" class="form-control input_search " placeholder="请输入企业名称">
+                <span class="input-group-btn"> 
+                    <button class="btn btn-white no-btn-outline">
+                            <i class="fa fa-search "></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>  
+    <div class="grid-body no-border m-t-sm">
+    	<div type="text" class="i-option-grid fix-ugrid-ctn" u-meta='{"id":"grid1","data":"enterpriseDataTable","type":"grid","editable":false}'>
+            <div options='{"field":"code","dataType":"String","title":"企业编码","width":"30%"}'></div>
+            <div options='{"field":"name","dataType":"String","title":"企业名称","width":"40%"}'></div>
+            <div options='{"field":"area","dataType":"String","title":"所在地","width":"30%"}'></div>
+
+        </div>
+        <div class="row" style="text-align:center;">
+            <ul u-meta='{"type":"pagination","data":"enterpriseDataTable","pageChange":"pageChange","sizeChange":"sizeChange"}' class="pagination"></ul>
+        </div>
+    </div>
+</div>

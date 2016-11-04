@@ -1,0 +1,41 @@
+
+<div class="row" id="ref_goodssku" style="height:500px;overflow:auto;">
+	<div class="col-sm-12">
+	    <form class="form-search input-group pull-right m-b-sm" data-bind="submit:queryPageByGoods">
+	            <input type="text" data-bind="value:goodsName" class="form-control input_search " placeholder="请输入商品名称">
+	        <span class="input-group-btn"> 
+	            <button class="btn btn-white no-btn-outline">
+	                    <i class="fa fa-search "></i>
+	            </button>
+	        </span>
+	    </form>
+	</div>
+    <div class="col-md-3" style="border: solid 1px #E5E5E5;height: 400px;overflow: auto;">
+        <div class="ztree" u-meta='{"id":"ztree_goods_refer","data":"productClassDataTable","type":"tree","idField":"id","nameField":"name","setting":{"view":{"selectedMulti":false}},"pidField":"parentId","events":{"onClick":"treeOnClick"}}'>
+        </div>
+    </div>
+	<div class="col-md-9"> 		
+        <div id="personedit" class="tab-pane m-t-sm m-l-sm">  
+            <div data-bind="foreach:{data:productDataTable.rows(),as:'row'}" class="goodssku-ctn" style="height: 400px;">
+                <div class="sku-item-ctn clearfix"  data-bind="click:function(){$root.noskuselect($data)}">
+                        <div class="pull-left img-ctn">
+                        <img alt="" data-bind="attr:{'src':row.ref('imgUrl')()+'@40w'}">
+                    </div>
+                    
+                   <div class="sku-item-title">
+                       
+                       <span data-bind="text:row.ref('subject'),attr:{title:row.ref('subject')}" class="sku-subject pull-left"></span>
+                       <span data-bind="text:row.ref('code')" class="sku-code pull-left m-l-sm"></span>
+                   </div>
+                   <!--ko foreach:{data:row.ref('sku'),as:'skuitem'}-->              
+                    <span data-bind="text:skuitem.skuValue,click:function(){$root.skuselect($data,$parent);}" class="label label-default sku-item">222</span>
+                <!--/ko-->
+                </div>
+                
+            </div>      
+            <div class="row" style="text-align:center;">
+                <ul u-meta='{"type":"pagination","data":"productDataTable","pageChange":"pageChange","sizeChange":"sizeChange"}' class="pagination" style="margin:20px 0 0 0"></ul>
+            </div>
+        </div>  
+   </div>
+</div>

@@ -1,0 +1,68 @@
+<style type="text/css">
+	.refer-form{
+		width: 220px;
+	}
+	.refer-form .fa {
+		cursor: pointer;
+	}
+	.refer-form .fa-times{
+		position: absolute;
+		top: 11px;
+	    color: #999;
+	    transition: all .5s;
+		right: 36px;
+	}
+	.search-result{
+		position: absolute;
+		background: #FFFFFF;		
+		z-index: 999;
+		width: 100%;
+	}
+	.search-result .search-result-list li {
+		padding: 0 12px 0;
+		line-height: 28px;
+		color: #999999;
+		width: 100%;
+		overflow: hidden;
+	}
+	.search-result .search-result-list li:hover{
+		background: rgb(232,247,251);
+	}
+	.search-result .search-result-list li.active{
+	 	background: rgb(232,247,251);	
+	}
+	.prompt{
+		line-height: 32px;
+		padding-left: 10px;
+		color: #999;
+		display: none;
+		background: #F9F9F9;
+	}
+	.search-result-list:empty+.prompt{
+		display: block;
+	}
+	.controlbtn{
+		line-height: 24px;
+		padding: 0 10px 0;
+	}
+</style>
+
+
+<div class="form-search refer-form" id="single-refer">				
+	<input id="choosedRefer" autocomplete="off" type="text" class="form-control " placeholder="选择供应商" data-bind=" value:searchVal, valueUpdate: 'afterkeydown',event:{focus:referFocus,blur:refBlur,keyup:refKeyup}">
+	<i class="fa fa-times" data-bind="visible:delBtnshow, click:restInput"></i>
+	<i class="fa fa-list-ul i-refer-input" style="right: 0;top: 0;padding: 12px;" data-bind="click:clickReferModel"></i>
+	<div class="search-result" data-bind="visible:searchshow">
+		<ul class="search-result-list" data-bind="foreach:searchList" style="margin: 0;">
+			<li data-bind="event:{click:$parent.clicklist},css:{active:$parent.navselectItem()==$data}">
+				<span data-bind="text:name"></span>
+			</li>
+			
+		</ul>
+		<div class="prompt"><spa>请输入查询条件</spa></div>
+		<div class="clearfix controlbtn">
+          	<a  data-bind="visible:showRefmore,click:loadRefmore">查看更多</a>			              			
+        </div>
+	</div>
+	
+</div>

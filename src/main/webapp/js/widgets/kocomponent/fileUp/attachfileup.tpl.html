@@ -1,0 +1,218 @@
+	
+<style type="text/css">
+.attch-readyonly .tagsfile-btn {
+	position: relative;	
+	background: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #0090D9;
+    text-align: left;
+    width: 100px;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;	
+    clear: both;	    
+}
+.attch-readyonly  #tagsfile{
+	position: absolute;
+	width: 100px;
+    height: 38px;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	
+}	
+.attch-readyonly  .tagdiv{
+	height: 48px;
+	width: 210px;
+	float: left;
+	border:1px solid transparent;
+	margin-right: 10px;
+	
+}	
+.attch-readyonly  .tagdiv:hover{
+	border:1px solid #6bcaea;
+	background: #e9f7fc;
+}
+.attch-readyonly  .tag-del{
+	text-align: center;
+	font-size: 14px;
+	width: 20px;
+	margin-top: 10px;
+	cursor: pointer;
+	display: none;
+	line-height: 24px;
+}
+.attch-readyonly  .tagdiv:hover .tag-del{
+	display: block;
+}
+
+.attch-readyonly .iconbox{
+	width: 36px;
+	height: 38px;
+	margin:4px 6px;
+	float: left;
+	background: url("img/attachment3.png") no-repeat;
+	background-size:36px 36px ;
+	
+}
+
+.attch-readyonly  .infobox{
+	width: 136px;
+	float: right;
+	height: 40px;
+	margin: 4px;
+	margin-left: 0px;
+}
+.attch-readyonly .tagname, .attch-readyonly .tagsize{
+	line-height: 20px;
+	font-size: 12px;
+	 width: 134px;
+    overflow: hidden;
+    white-space: nowrap;
+   text-overflow: ellipsis;
+}
+.attch-readyonly .down{
+	font-size: 12px;
+	text-align: center;
+	padding-right: 10px;
+}
+.attch-readyonly .tagsize{
+	 width: 100px;
+	color: #999;
+	float: left;
+}
+
+.attch-readyonly .pull-left{
+	float: left;
+}
+.attch-readyonly .pull-right{
+	float: right;
+}
+.attch-readyonly .iconbox.doc ,.attch-readyonly .iconbox.docx{
+	background: url("img/tags.png")  0 0   no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.xml{
+	background: url("img/tags.png") -48.5px 0px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.pptx{
+	background: url("img/tags.png") -97px 0 no-repeat;
+	background-size:236px 196px ;
+	
+}
+
+.attch-readyonly .iconbox.txt{
+	background: url("img/tags.png") -149px 0 no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.pdf{
+	background: url("img/tags.png") -50px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.cad{
+	background: url("img/tags.png")  -97px  -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.music{
+	background: url("img/tags.png")  -149px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.img, .attch-readyonly .iconbox.jpg, .attch-readyonly .iconbox.jpeg, .attch-readyonly .iconbox.webp ,.attch-readyonly .iconbox.png, .attch-readyonly .iconbox.bmp{
+	background: url("img/tags.png")  -200px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.video{
+	background: url("img/tags.png")  -0px -104px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.xlsx{
+	background: url("img/tags.png")  -97.6px -160px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .iconbox.zip{
+	background: url("img/tags.png")  -200px -160px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.attch-readyonly .download{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(img/download.png) no-repeat;
+}
+</style>
+<div class="tagsfile-box attch-readyonly">
+	<div class="tagsfile-btn">
+		  <span><span class="fa  fa-paperclip"></span>  添加附件</span>
+		 <input type="file" name="tagsfile" id="tagsfile" multiple value="" data-bind=" event:{change:function(row,event){ uploadpic(row,event)}}">
+	</div>
+	<div class="tagsinfo-box ">
+		<div class="oldtags" data-bind="foreach:initDatas">
+			<div class="tagdiv  pull-left">
+				 <div class="iconbox" data-bind="css:function(){return filename.substring(Number(filename.lastIndexOf('.'))+1)}()">				 	 
+					
+				 </div>
+				 <div class="pull-left infobox">
+				 	<div class="tagname">
+				 		<span class="infon-box" data-bind="text:filename ,attr:{'title':filename}"></span>
+				 	</div>
+				 	<div class="tagcontrol clearfix">
+				 		<div class="tagsize">
+				 	 		 <span data-bind="text:function(){if(filesize && filesize !=''){var tagsize = (filesize/(1024*1024)).toFixed(2); return tagsize -1 > 0? tagsize +'Mb':tagsize*1024 +'KB'}else{return '未知大小'}  }()"></span>
+						 </div>
+						 <div class="down pull-right">
+						 <a  class="download" title="下载" data-bind="click:function(data, event){return $parent.downtags(data,event)} "></a>
+						 </div>
+				 	</div>				 	
+				 </div>
+				 <div class="pull-right tag-del">
+				 	  <div class="del-btn" data-bind="click:function(data, event){return $parent.delOldtags(data,event)} ">
+				 	  <a  class="fa fa-remove del" style="color: #337ab7;" title="删除" ></a>
+				 	  </div>
+				 </div>				 
+			</div>		
+		</div>
+		<div class="newtags" data-bind="foreach:newDatas">		
+			<div class="tagdiv  pull-left">
+				 <div class="iconbox" data-bind="css:function(){return filename.substring(Number(filename.lastIndexOf('.'))+1)}()">				 	 
+					
+				 </div>
+				 <div class="pull-left infobox">
+				 	<div class="tagname">
+				 		<span class="infon-box" data-bind="text:filename ,attr:{'title':filename}"></span>
+				 	</div>
+				 	<div class="tagcontrol clearfix">
+				 		<div class="tagsize">
+				 	 		 <span data-bind="text:function(){if(filesize && filesize !=''){var tagsize = (filesize/(1024*1024)).toFixed(2); return tagsize -1 > 0? tagsize +'Mb':tagsize*1024 +'KB'}else{return '未知大小'}  }()"></span>
+						 </div>
+						 <div class="down pull-right">
+							 <a  class="download" title="下载" data-bind="click:function(data, event){return $parent.downtags(data,event)} "></a>
+						 </div>
+				 	</div>
+				 	
+				 </div>
+				 <div class="pull-right tag-del">
+				 	  <div class="del-btn " data-bind="click:function(data, event){return $parent.delNewtags(data,event)} ">
+				 	    <a  class="fa fa-remove del" style="color: #337ab7;"  title="删除" ></a>
+				 	  </div>
+				 </div>				 
+			</div>
+		
+		</div>
+	</div>
+</div>

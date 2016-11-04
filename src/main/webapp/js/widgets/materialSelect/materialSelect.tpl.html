@@ -1,0 +1,66 @@
+<div class="modal inmodal fade" id="mclsModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="modal-content animated bounceInRight">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>             
+                <h4 class="modal-title">物料选择</h4> 
+                <small class="font-bold">根据物料分类选择物料</small>               
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="nestablemcls">
+                            <ol class="dd-list dd-nodrag" data-bind="foreach:{data:materialClassDataTable.rows(),as:'row'}">
+                                 <li class="dd-item" data-bind="attr:{'data-id':row.ref('id')}">
+                                    <div class="dd-handle">
+                                       <span data-bind="text: row.ref('className')"></span>
+                                    </div>
+                                    <!--二级-->
+                                    <ol class="dd-list" style="" data-bind="foreach:{data:row.ref('children'),as:'child'}">
+                                        <li class="dd-item" data-bind="attr:{'data-id':child.id}">
+                                            <div class="dd-handle">
+                                                <span class="pull-right"></span>
+                                                <span data-bind="text:child.className"></span>
+                                            </div>
+                                            <!--三级分类-->
+                                            <ol class="dd-list" style="" data-bind="foreach:{data:child.children,as:'subchild'}">
+                                                <li class="dd-item" data-bind="attr:{'data-id':subchild.id}">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"></span>
+                                                        <span data-bind="text:subchild.className"></span>
+                                                    </div>
+                                                    <!--四级分类-->
+                                                    <ol class="dd-list" style="" data-bind="foreach:{data:subchild.children,as:'subsubchild'}">
+                                                        <li class="dd-item" data-bind="attr:{'data-id':subsubchild.id}">
+                                                            <div class="dd-handle">
+                                                                <span class="pull-right"></span>
+                                                                <span data-bind="text:subsubchild.className"></span>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>                     
+                                </li>
+                            </ol>                                 
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div type="text" class="i-option-grid" u-meta='{"id":"grid1","data":"materialDataTable","type":"grid","editable":false}'>
+                            <div options='{"field":"code","dataType":"String","title":"物料编码","width":"120"}'></div>
+                            <div options='{"field":"name","dataType":"String","title":"物料名称","width":"120"}'></div>  
+                            <div options='{"field":"id","dataType":"String","title":"操作","width":"120"}'></div>                         
+                        </div>
+                        <div class="row" style="text-align:center;">
+                            <ul u-meta='{"type":"pagination","data":"materialDataTable"}' class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white btn-sm" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

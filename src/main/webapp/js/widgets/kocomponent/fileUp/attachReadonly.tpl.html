@@ -1,0 +1,183 @@
+	
+<style type="text/css">
+.tagsfile-btn {
+	position: relative;	
+	background: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #0090D9;
+    text-align: center;
+    width: 100px;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;	
+    clear: both;	    
+}
+#tagsfile{
+	position: absolute;
+	width: 100px;
+    height: 38px;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}	
+.tagdiv{
+	height: 48px;
+	width: 180px;
+	float: left;
+	border:1px solid transparent;
+	margin-right: 10px;
+	
+}	
+.tagdiv:hover{
+	border:1px solid #6bcaea;
+	background: #e9f7fc;
+}
+.tag-del{
+	text-align: center;
+	font-size: 14px;
+	width: 20px;
+	margin-top: 10px;
+	cursor: pointer;
+	display: none;
+	line-height: 24px;
+}
+.tagdiv:hover .tag-del{
+	display: block;
+}
+
+.iconbox{
+	width: 36px;
+	height: 38px;
+	margin:4px 6px;
+	float: left;
+	background: url("img/attachment3.png") no-repeat;
+	background-size:36px 36px ;
+	
+}
+
+.infobox{
+	width: 120px;
+	float: right;
+	height: 40px;
+	margin: 4px;
+	margin-left: 0px;
+}
+.tagname,.tagsize{
+	line-height: 20px;
+	font-size: 12px;
+	 width: 118px;
+    overflow: hidden;
+    white-space: nowrap;
+   text-overflow: ellipsis;
+}
+.down{
+	font-size: 12px;
+	text-align: center;
+	padding-right: 10px;
+}
+.tagsize{
+	 width: 80px;
+	color: #999;
+	float: left;
+}
+
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+.iconbox.doc ,.iconbox.docx{
+	background: url("img/tags.png")  0 0   no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.xml{
+	background: url("img/tags.png") -48.5px 0px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.pptx{
+	background: url("img/tags.png") -97px 0 no-repeat;
+	background-size:236px 196px ;
+	
+}
+
+.iconbox.txt{
+	background: url("img/tags.png") -149px 0 no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.pdf{
+	background: url("img/tags.png") -50px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.cad{
+	background: url("img/tags.png")  -97px  -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.music{
+	background: url("img/tags.png")  -149px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.img, .iconbox.jpg, .iconbox.jpeg, .iconbox.webp ,.iconbox.png, .iconbox.bmp{
+	background: url("img/tags.png")  -200px -52px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.video{
+	background: url("img/tags.png")  -0px -104px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.xlsx{
+	background: url("img/tags.png")  -97.6px -160px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.iconbox.zip{
+	background: url("img/tags.png")  -200px -160px  no-repeat;
+	background-size:236px 196px ;
+	
+}
+.download{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(img/download.png) no-repeat;
+}
+</style>
+<div class="tagsfile-box">
+	<div class="tagsinfo-box ">
+		<div class="oldtags" data-bind="foreach:initDatas">
+			<div class="tagdiv  pull-left">
+				 <div class="iconbox" data-bind="css:function(){return filename.substring(Number(filename.lastIndexOf('.'))+1)}()">				 	 
+					
+				 </div>
+				 <div class="pull-left infobox">
+				 	<div class="tagname">
+				 		<span class="infon-box" data-bind="text:filename ,attr:{'title':filename}"></span>
+				 	</div>
+				 	<div class="tagcontrol clearfix">
+				 		<div class="tagsize">
+				 	 		 <span data-bind="text:function(){if(filesize && filesize !=''){var tagsize = (filesize/(1024*1024)).toFixed(2); return tagsize -1 > 0? tagsize +'Mb':tagsize*1024 +'KB'}else{return '未知大小'}  }()"></span>
+						 </div>
+						 <div class="down pull-right">
+						 <a  class="download" title="下载" data-bind="click:function(data, event){return $parent.downtags(data,event)} "></a>
+						 </div>
+				 	</div>				 	
+				 </div>
+						 
+			</div>		
+		</div>	
+	</div>
+</div>
+

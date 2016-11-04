@@ -1,0 +1,59 @@
+
+<style type="text/css">
+.fileimg-box{
+	padding: 0;
+	margin: 0;
+	margin-right: 20px;
+}
+.fileimg-box ul{
+	margin: 0;
+	padding: 0;
+}
+.fileimg-box li{
+	width: 104px;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 10px;
+}
+.fileimgbox{
+  width: 104px;
+  border: 1px dashed #CCCCCC;
+  padding: 2px;
+  overflow: hidden;
+}
+.fileimgbox img{
+	width: 100px;
+	height:100px;
+	
+}
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.fileUpload input.uploadimg {	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}	
+.fileControl{
+	line-height: 20px;
+}
+
+</style>
+
+<div class="fileimg-box clearfix">
+	<ul class="pull-left" data-bind="foreach:newDatas">		
+		<li >
+			 <div class="text-center fileimgbox"><img data-bind="attr:{src:url ?function(){var imgUrl = url.replace('oss-cn-beijing','img-cn-beijing');  if(imgUrl.indexOf('?Expires') >-1){ imgUrl= imgUrl.split('?Expires')[0]; return imgUrl.match('http')? imgUrl: 'http://'+imgUrl}else{return imgUrl.match('http')? imgUrl: 'http://'+imgUrl }}() : ''},click:function(data,event){$parent.downImg(data,event)}"  alt="img" /></div>
+			 <!--<div class="text-center fileControl"><a class="delBtn" data-bind="click:function(data, event){return $parent.delImgdata(data,event)} "> 删除</a></div>-->	
+		</li>
+	</ul>
+</div>
+
+			
